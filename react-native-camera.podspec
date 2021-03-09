@@ -23,9 +23,9 @@ Pod::Spec.new do |s|
     ss.source_files = "ios/RN/**/*.{h,m}"
   end
 
-  ss.dependency 'react-native-camera/RN'
-  ss.dependency 'react-native-camera/RCT'
-  ss.dependency 'GoogleMLKit/BarcodeScanning'
+  s.dependency 'react-native-camera/RN'
+  s.dependency 'react-native-camera/RCT'
+  s.dependency 'GoogleMLKit/BarcodeScanning'
 
   s.default_subspecs = "RN", "RCT"
 
