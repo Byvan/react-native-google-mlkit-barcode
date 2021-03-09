@@ -1,7 +1,7 @@
 # MLKit Barcode Reader
 
 ## Docs
-Follow our docs here [https://react-native-community.github.io/react-native-camera/](https://react-native-community.github.io/react-native-camera/)
+Follow based lib docs here [https://react-native-community.github.io/react-native-camera/](https://react-native-community.github.io/react-native-camera/)
 
 The comprehensive camera module for React Native.
 
