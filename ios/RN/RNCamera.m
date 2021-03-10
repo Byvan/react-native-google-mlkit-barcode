@@ -2081,8 +2081,8 @@ BOOL _sessionInterrupted = NO;
           [resultDict setObject:rawValue forKey:@"dataRaw"];
           [resultDict setObject:displayValue forKey:@"data"];
           
-          MLKBarcodeValueType valueType = barcode.valueType;
-          [resultDict setObject:[self getType:barcode.valueType] forKey:@"type"];
+          [resultDict setObject:[self getType:barcode.valueType] forKey:@"dataType"];
+          [resultDict setObject:[self getFormat:barcode.format] forKey:@"format"];
           
           [result addObject:resultDict];
           
@@ -2096,6 +2096,61 @@ BOOL _sessionInterrupted = NO;
       [self onBarcodesDetected:eventBarcode];
       self.finishedDetectingBarcodes = true;
   });
+}
+
+- (NSString *)getFormat:(int)format
+{
+    NSString *barcodeType = @"UNKNOWN";
+    switch (format) {
+        case MLKBarcodeFormatUnknown:
+            barcodeType = @"UNKNOWN";
+            break;
+        case MLKBarcodeFormatAll:
+            barcodeType = @"ALL";
+            break;
+        case MLKBarcodeFormatCode128:
+            barcodeType = @"CODE128";
+            break;
+        case MLKBarcodeFormatCode39:
+            barcodeType = @"CODE39";
+            break;
+        case MLKBarcodeFormatCode93:
+            barcodeType = @"CODE93";
+            break;
+        case MLKBarcodeFormatCodaBar:
+            barcodeType = @"CODABAR";
+            break;
+        case MLKBarcodeFormatDataMatrix:
+            barcodeType = @"DATAMATRIX";
+            break;
+        case MLKBarcodeFormatEAN13:
+            barcodeType = @"EAN13";
+            break;
+        case MLKBarcodeFormatEAN8:
+            barcodeType = @"EAN8";
+            break;
+        case MLKBarcodeFormatITF:
+            barcodeType = @"ITF";
+            break;
+        case MLKBarcodeFormatQRCode:
+            barcodeType = @"QRCODE";
+            break;
+        case MLKBarcodeFormatUPCA:
+            barcodeType = @"UPCA";
+            break;
+        case MLKBarcodeFormatUPCE:
+            barcodeType = @"UPCE";
+            break;
+        case MLKBarcodeFormatPDF417:
+            barcodeType = @"PDF417";
+            break;
+        case MLKBarcodeFormatAztec:
+            barcodeType = @"AZTEC";
+            break;
+        default:
+            break;
+    }
+    return barcodeType;
 }
 
 - (NSString *)getType:(int)type
