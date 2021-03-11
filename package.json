@@ -1,7 +1,7 @@
 {
   "name": "react-native-camera",
   "description": "A Camera reads barcodes component for React Native based on reat-native-camera and replaces it. Barcode Reader replaced on Google MLKit unlike the original which uses FirebaseMLKit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Lochlan Wansbrough <lochie@live.com> (http://lwansbrough.com)",
   "collective": {
     "type": "opencollective",

@@ -2109,37 +2109,37 @@ BOOL _sessionInterrupted = NO;
             barcodeType = @"ALL";
             break;
         case MLKBarcodeFormatCode128:
-            barcodeType = @"CODE128";
+            barcodeType = @"CODE_128";
             break;
         case MLKBarcodeFormatCode39:
-            barcodeType = @"CODE39";
+            barcodeType = @"CODE_39";
             break;
         case MLKBarcodeFormatCode93:
-            barcodeType = @"CODE93";
+            barcodeType = @"CODE_93";
             break;
         case MLKBarcodeFormatCodaBar:
             barcodeType = @"CODABAR";
             break;
         case MLKBarcodeFormatDataMatrix:
-            barcodeType = @"DATAMATRIX";
+            barcodeType = @"DATA_MATRIX";
             break;
         case MLKBarcodeFormatEAN13:
-            barcodeType = @"EAN13";
+            barcodeType = @"EAN_13";
             break;
         case MLKBarcodeFormatEAN8:
-            barcodeType = @"EAN8";
+            barcodeType = @"EAN_8";
             break;
         case MLKBarcodeFormatITF:
             barcodeType = @"ITF";
             break;
         case MLKBarcodeFormatQRCode:
-            barcodeType = @"QRCODE";
+            barcodeType = @"QR_CODE";
             break;
         case MLKBarcodeFormatUPCA:
-            barcodeType = @"UPCA";
+            barcodeType = @"UPC_A";
             break;
         case MLKBarcodeFormatUPCE:
-            barcodeType = @"UPCE";
+            barcodeType = @"UPC_E";
             break;
         case MLKBarcodeFormatPDF417:
             barcodeType = @"PDF417";
