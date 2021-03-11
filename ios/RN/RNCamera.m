@@ -2070,7 +2070,7 @@ BOOL _sessionInterrupted = NO;
           NSMutableDictionary *resultDict =
           [[NSMutableDictionary alloc] initWithCapacity:20];
           // Boundaries of a barcode in image
-          NSDictionary *bounds = [self processBounds:barcode.frame];
+          NSDictionary *bounds = [self processBounds:barcode.frame width:width height:height];
           [resultDict setObject:bounds forKey:@"bounds"];
 
           // TODO send points to javascript - implement on android at the same time
@@ -2196,15 +2196,18 @@ BOOL _sessionInterrupted = NO;
     return barcodeType;
 }
 
-- (NSDictionary *)processBounds:(CGRect)bounds
+- (NSDictionary *)processBounds:(CGRect)frame
+                          width:(CGFloat)width
+                         height:(CGFloat)height
 {
-    float width = bounds.size.width * _scaleX;
-    float height = bounds.size.height * _scaleY;
-    float originX = bounds.origin.x * _scaleX;
-    float originY = bounds.origin.y * _scaleY;
+    CGRect normalizedRect = CGRectMake(frame.origin.x / width,       // X
+                                       frame.origin.y / height,      // Y
+                                       frame.size.width / width,     // Width
+                                       frame.size.height / height);  // Height
+    CGRect standardizedRect = CGRectStandardize([_previewLayer rectForMetadataOutputRectOfInterest:normalizedRect]);
     NSDictionary *boundsDict = @{
-                                 @"size" : @{@"width" : @(width), @"height" : @(height)},
-                                 @"origin" : @{@"x" : @(originX), @"y" : @(originY)}
+                                 @"size" : @{@"width" : @(standardizedRect.size.width), @"height" : @(standardizedRect.size.height)},
+                                 @"origin" : @{@"x" : @(standardizedRect.origin.x), @"y" : @(standardizedRect.origin.y)}
                                  };
     return boundsDict;
 }
